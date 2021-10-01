@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<script>
+$(document).ready(function() {
+	
+	$('#add_stocks').click(function(){
+		$('.ui.modal').modal('show')
+	})
+
+	$('#save').click(function() {
+		var symbols = $('#symbols').val();
+		console.log(symbols);
+
+		var stockSymbols = symbols.split('\n');
+		console.log(stockSymbols)
+		
+		for (var i = 0; i < stockSymbols.length; i++) {
+			console.log(stockSymbols[i])
+		}
+	})
+});	
+</script>
+
+
+<div class="ui input">
+  <input type="text" placeholder="P/E ratio." data-dashlane-rid="a2fa4852c5df5681" data-form-type="">
+</div>
+
+<div class="ui input">
+  <input type="text" placeholder="Dividend Yield" data-dashlane-rid="a2fa4852c5df5681" data-form-type="">
+</div>
+
+<div class="ui input">
+  <input type="checkbox" name="example">
+  <label>Above 50 day MA</label>
+</div>
+
+<div class="ui checkbox">
+  <input type="checkbox" name="example">
+  <label>Above 200 day MA</label>
+</div>
+
+<button class="ui button">
+  Filter
+</button>
+
+
+<div>
+	<button id='add_stocks' class="ui button">
+  	Add Stocks
+	</button>
+</div>
+
+
+<table class="ui celled table">
+  <thead>
+    <tr><th>Symbol</th>
+    <th>P/E</th>
+    <th>Dividend Yield</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td data-label="Name">MSF</td>
+      <td data-label="Age">10</td>
+      <td data-label="Job">2</td>
+    </tr>
+    <tr>
+      <td data-label="Name">APL</td>
+      <td data-label="Age">26</td>
+      <td data-label="Job">3</td>
+    </tr>
+    <tr>
+      <td data-label="Name">FB</td>
+      <td data-label="Age">20</td>
+      <td data-label="Job">2</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="ui modal">
+<i class="close icon"></i>
+<div class="header">
+    Add Stock Symbol
+ </div>
+ <div class="content">
+	<div class="ui form">
+		<div class="field">
+			<label>Enter Stock Symbol</label>
+			<textarea id='symbols'></textarea>
+		</div>
+	</div>
+</div>
+<div class="actions">
+	<div id='save' class="ui positive right labeled icon button">
+	Add Symbols
+	<i class="checkmark icon"></i>
+	</div>
+	</div>
+</div>
+
+{% endblock %}

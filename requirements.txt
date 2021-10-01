@@ -1,0 +1,5 @@
+fastapi
+unicorn
+jinja2
+yfinance
+sqlalchemy
